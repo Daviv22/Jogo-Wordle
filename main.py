@@ -3,3 +3,7 @@ def gerar_lista():
         palavras = [palavra.strip() for palavra in lexico]
 
     return palavras
+
+def jogar():
+    listaPalavras = gerar_lista()
+    
