@@ -28,10 +28,16 @@ def simplifica_palavra(palavraDaLista):
         else:
             novaString += c    
     
-    return novaString
+    return novaString.lower()
 
 def escolher_palavra(listaPalavra, tamanho):
     return rd.choice([palavra for palavra in listaPalavra if len(palavra) == tamanho])
+
+def verifica_chute(chute, listaSimplificada):
+    if chute in listaSimplificada:
+        return True
+    else:
+        return False
 
 def jogar():
     listaPalavra = gerar_lista()
@@ -39,7 +45,15 @@ def jogar():
 
     tamanho = 5
     palavraEscolhida = escolher_palavra(listaPalavra, tamanho)
-    palavraSimplificada = simplifica_palavra(palavraEscolhida).lower()
+    palavraSimplificada = simplifica_palavra(palavraEscolhida)
+
+    while True:
+        chute = input("Digite uma palavra: ")
+        if verifica_chute(chute, listaSimplificada):
+            print("palavra existe")
+        else:
+            print("chute inválido")
+
 
 
 
