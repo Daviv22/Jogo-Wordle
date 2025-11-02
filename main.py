@@ -39,5 +39,8 @@ def jogar():
 
     tamanho = 5
     palavraEscolhida = escolher_palavra(listaPalavra, tamanho)
+    palavraSimplificada = simplifica_palavra(palavraEscolhida).lower()
+
+
 
 jogar()
