@@ -1,5 +1,4 @@
 import random as rd
-import unicodedata
 
 def gerar_lista():
     with open("lexico.txt", "r", encoding="utf-8") as lexico:
