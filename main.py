@@ -1,4 +1,5 @@
 import random as rd
+import unicodedata
 
 def gerar_lista():
     with open("lexico.txt", "r", encoding="utf-8") as lexico:
@@ -33,11 +34,25 @@ def simplifica_palavra(palavraDaLista):
 def escolher_palavra(listaPalavra, tamanho):
     return rd.choice([palavra for palavra in listaPalavra if len(palavra) == tamanho])
 
-def verifica_chute(chute, listaSimplificada):
-    if chute in listaSimplificada:
+def verifica_chute(chute, listaSimplificada, tamanho):
+    if chute in listaSimplificada and len(chute) == tamanho:
         return True
     else:
         return False
+    
+def feedback_chute(chute, palavraSimplificada, tamanho):
+    stringFeedback = [""] * tamanho
+    for i in range(5):
+        if chute[i] not in palavraSimplificada:
+            stringFeedback[i] = "E"
+        elif chute[i] == palavraSimplificada[i]:
+            stringFeedback[i] = "C"
+        elif chute[i] != palavraSimplificada[i] and chute[i] in palavraSimplificada:
+            stringFeedback[i] = "A"
+    
+    print("".join(stringFeedback))
+    print(chute)
+            
 
 def jogar():
     listaPalavra = gerar_lista()
@@ -49,12 +64,9 @@ def jogar():
 
     while True:
         chute = input("Digite uma palavra: ")
-        if verifica_chute(chute, listaSimplificada):
-            print("palavra existe")
+        if verifica_chute(chute, listaSimplificada, tamanho):
+            feedback_chute(chute, palavraSimplificada, tamanho)
         else:
             print("chute inválido")
-
-
-
 
 jogar()
