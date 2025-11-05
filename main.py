@@ -49,8 +49,8 @@ def feedback_chute(chute, palavraSimplificada, tamanho):
         elif chute[i] != palavraSimplificada[i] and chute[i] in palavraSimplificada:
             stringFeedback[i] = "A"
     
-    print("".join(stringFeedback))
-    print(chute)
+    return "".join(stringFeedback)
+
             
 
 def jogar():
@@ -61,10 +61,21 @@ def jogar():
     palavraEscolhida = escolher_palavra(listaPalavra, tamanho)
     palavraSimplificada = simplifica_palavra(palavraEscolhida)
 
-    while True:
+    tentativas = 6
+
+    while tentativas:
         chute = input("Digite uma palavra: ")
         if verifica_chute(chute, listaSimplificada, tamanho):
-            feedback_chute(chute, palavraSimplificada, tamanho)
+            feedback = feedback_chute(chute, palavraSimplificada, tamanho)
+            tentativas -= 1
+            print(feedback)
+            print(chute.upper())
+            print(tentativas)
+            if feedback == "CCCCC":
+                print("Parabéns! Você acertou!!")
+                break
+            else:
+                continue
         else:
             print("chute inválido")
 
