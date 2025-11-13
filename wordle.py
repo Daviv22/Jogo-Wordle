@@ -58,9 +58,9 @@ class Wordle:
     def feedback_chute(self, chute):
         stringFeedback = [""]
         for i in range(self.tamanho):
-            if chute[i] == self.palavra_simplificada:
+            if chute[i] == self.palavra_simplificada[i]:
                 stringFeedback.append("C")
-            elif chute[i] in self.palavra_simplificada[i]:
+            elif chute[i] in self.palavra_simplificada:
                 stringFeedback.append("A")
             else:
                 stringFeedback.append("E")
