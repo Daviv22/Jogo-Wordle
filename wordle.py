@@ -1,3 +1,5 @@
+import random as rd
+
 class Wordle:
     def __init__(self, arquivo_lexico, tamanho=5, tentativas=6):
         self.arquivo_lexico = arquivo_lexico
@@ -40,3 +42,7 @@ class Wordle:
         for palavra in listaPalavra:
             listaSimplificada.append(self.simplifica_palavra(palavra))
         return listaSimplificada
+    
+    # Método para escolher uma palavra aleatória
+    def escolher_palavra(self):
+        return rd.choice([palavra for palavra in self.lista_palavras if len(palavra) == self.tamanho])
