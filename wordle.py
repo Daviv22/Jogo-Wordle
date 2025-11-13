@@ -53,3 +53,16 @@ class Wordle:
             return True
         else:
             return False
+        
+    # Método qpara retornar feedback sobre o chute (o que acertou, errou)
+    def feedback_chute(self, chute):
+        stringFeedback = [""]
+        for i in range(self.tamanho):
+            if chute[i] == self.palavra_simplificada:
+                stringFeedback[i] = "C"
+            elif chute[i] in self.palavra_simplificada[i]:
+                stringFeedback[i] = "A"
+            else:
+                stringFeedback.append("E")
+        
+        return "".join(stringFeedback)
