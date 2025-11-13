@@ -56,6 +56,13 @@ class Wordle:
         
     # Método qpara retornar feedback sobre o chute (o que acertou, errou)
     def feedback_chute(self, chute):
+
+        # Realiza a contagem de cada letra na palavra escolhida
+        contagem = {}
+        for letra in self.palavra_escolhida:
+            contagem[letra] = contagem.get(letra, 0) + 1
+
+
         stringFeedback = [""]
         for i in range(self.tamanho):
             if chute[i] == self.palavra_simplificada[i]:
