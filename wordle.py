@@ -46,3 +46,10 @@ class Wordle:
     # Método para escolher uma palavra aleatória
     def escolher_palavra(self):
         return rd.choice([palavra for palavra in self.lista_palavras if len(palavra) == self.tamanho])
+    
+    # Método para verificar se o chute do jogador é válido
+    def verifica_chute(self, chute):
+        if chute in self.lista_simplificada and len(chute) == self.tamanho:
+            return True
+        else:
+            return False
