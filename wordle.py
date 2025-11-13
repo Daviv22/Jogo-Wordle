@@ -16,7 +16,7 @@ class Wordle:
         return palavras
     
     # Método para simplificar palavras (remove acentos e cedilha)
-    def simplifica_palavra(palavraDaLista):
+    def simplifica_palavra(self, palavraDaLista):
         novaString = ""
         for c in palavraDaLista:
             if c in ['á', 'ã', 'â']:
@@ -33,3 +33,10 @@ class Wordle:
                 novaString += c    
         
         return novaString.lower()
+    
+    # Método para simplificar a lista inteira
+    def simplifica_lista(self, listaPalavra):
+        listaSimplificada = []
+        for palavra in listaPalavra:
+            listaSimplificada.append(self.simplifica_palavra(palavra))
+        return listaSimplificada
