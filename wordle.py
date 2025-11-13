@@ -62,13 +62,14 @@ class Wordle:
         for letra in self.palavra_escolhida:
             contagem[letra] = contagem.get(letra, 0) + 1
 
-
         stringFeedback = [""]
         for i in range(self.tamanho):
             if chute[i] == self.palavra_simplificada[i]:
                 stringFeedback.append("C")
+                contagem[chute[i]] -= 1
             elif chute[i] in self.palavra_simplificada:
                 stringFeedback.append("A")
+                contagem[chute[i]] -= 1
             else:
                 stringFeedback.append("E")
         
