@@ -12,7 +12,7 @@ class Wordle:
 
     # Método para gerar a lista
     def _gerar_lista(self):
-        with open("lexico.txt", "r", encoding="utf-8") as lexico:
+        with open("./src/core/lexico.txt", "r", encoding="utf-8") as lexico:
             palavras = [palavra.strip() for palavra in lexico]
 
         return palavras
@@ -59,22 +59,32 @@ class Wordle:
 
         # Realiza a contagem de cada letra na palavra escolhida
         contagem = {}
-        for letra in self.palavra_escolhida:
+        for letra in self.palavra_simplificada:
             contagem[letra] = contagem.get(letra, 0) + 1
 
-        stringFeedback = [""]
+        stringFeedback = [""] * self.tamanho
+        print(contagem)
+
+        # Marca as letras na posição certa
         for i in range(self.tamanho):
             if chute[i] == self.palavra_simplificada[i]:
-                stringFeedback.append("C")
+                stringFeedback[i] = "C"
                 contagem[chute[i]] -= 1
-            elif chute[i] in self.palavra_simplificada:
-                stringFeedback.append("A")
+        
+        # Marca letras certas na posição errada
+        for i in range(self.tamanho):
+            print(i)
+            if stringFeedback[i] != "":
+                continue
+
+            if chute[i] in self.palavra_simplificada and contagem[chute[i]] > 0:
+                stringFeedback[i] = "A"
                 contagem[chute[i]] -= 1
             else:
-                stringFeedback.append("E")
+                stringFeedback[i] = "E"
         
         return "".join(stringFeedback)
-    
+
     def jogar(self):
         """Controla o loop principal do jogo."""
         print(f"Bem-vindo ao Wordle! Adivinhe a palavra de {self.tamanho} letras.")
@@ -97,6 +107,8 @@ class Wordle:
                 break
         else:
             print(f"Você perdeu! A palavra era: {self.palavra_escolhida.upper()}")
+
+
 
 
 jogo = Wordle("lexico.txt", tamanho=5, tentativas=8)
