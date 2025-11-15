@@ -63,7 +63,6 @@ class Wordle:
             contagem[letra] = contagem.get(letra, 0) + 1
 
         stringFeedback = [""] * self.tamanho
-        print(contagem)
 
         # Marca as letras na posição certa
         for i in range(self.tamanho):
@@ -73,7 +72,6 @@ class Wordle:
         
         # Marca letras certas na posição errada
         for i in range(self.tamanho):
-            print(i)
             if stringFeedback[i] != "":
                 continue
 
