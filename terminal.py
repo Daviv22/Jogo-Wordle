@@ -1,6 +1,6 @@
-from core.wordle import Wordle
+from wordle import Wordle
 
-jogo = Wordle("./src/core/lexico.txt")
+jogo = Wordle("./lexico.txt")
 
 def jogar():
     """Controla o loop principal do jogo."""

@@ -12,7 +12,7 @@ class Wordle:
 
     # Método para gerar a lista
     def _gerar_lista(self):
-        with open("./src/core/lexico.txt", "r", encoding="utf-8") as lexico:
+        with open(self.arquivo_lexico, "r", encoding="utf-8") as lexico:
             palavras = [palavra.strip() for palavra in lexico]
 
         return palavras
@@ -109,7 +109,7 @@ class Wordle:
             print(f"Você perdeu! A palavra era: {self.palavra_escolhida.upper()}")
 
 
-
+"""
 
 jogo = Wordle("lexico.txt", tamanho=5, tentativas=8)
-jogo.jogar()
+jogo.jogar()"""
