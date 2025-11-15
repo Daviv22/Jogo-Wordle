@@ -85,29 +85,6 @@ class Wordle:
         
         return "".join(stringFeedback)
 
-    def jogar(self):
-        """Controla o loop principal do jogo."""
-        print(f"Bem-vindo ao Wordle! Adivinhe a palavra de {self.tamanho} letras.")
-        tentativas_restantes = self.tentativas
-
-        while tentativas_restantes > 0:
-            chute = input("Digite uma palavra: ").lower()
-            if not self.verifica_chute(chute):
-                print("Chute inválido! Tente novamente.")
-                continue
-
-            feedback = self.feedback_chute(chute)
-            print(feedback)
-            print(chute.upper())
-            tentativas_restantes -= 1
-            print(f"Tentativas restantes: {tentativas_restantes}\n")
-
-            if feedback == "C" * self.tamanho:
-                print("🎉 Parabéns! Você acertou a palavra!")
-                break
-        else:
-            print(f"Você perdeu! A palavra era: {self.palavra_escolhida.upper()}")
-
 
 """
 
