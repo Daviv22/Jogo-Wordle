@@ -13,10 +13,15 @@ class WordleGUI:
 
     def criar_interface(self):
         #Título
-        titulo = tk.Label(self.root, text="Wordle")
+        titulo = tk.Label(self.root, text="Wordle", bg="grey")
+        titulo.pack(pady=20)
 
         # Frame para o grid de letras
         self.frame_grid = tk.Frame(self.root, bg="grey")
         self.frame_grid.pack(pady=10)
 
+root = tk.Tk()
 
+app = WordleGUI(root)
+
+root.mainloop()
