@@ -43,6 +43,11 @@ class WordleGUI:
     def tecla_pressionada(self, event):
         if self.tentativa_atual >= self.jogo.tentativas:
             return None
+        
+    def verificar_palavra(self):
+        if self.letra_atual != self.jogo.tamanho:
+            print("Palavra incompleta!")
+            return
 
 root = tk.Tk()
 
