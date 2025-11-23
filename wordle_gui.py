@@ -88,7 +88,15 @@ class WordleGUI:
         # Obter feedback
         feedback = self.jogo.feedback_chute(palavra_simplificada)
 
+        for i in range(self.jogo.tamanho):
+            if feedback[i] == "C":
+                cor = self.cor_certa
+            elif feedback[i] == "A":
+                cor = self.cor_presente
+            else:
+                cor = self.cor_errada
 
+            self.celulas[self.tentativa_atual][i].config(bg=cor)
 
 
 root = tk.Tk()
