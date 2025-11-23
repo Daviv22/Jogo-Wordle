@@ -20,6 +20,16 @@ class WordleGUI:
         self.frame_grid = tk.Frame(self.root, bg="grey")
         self.frame_grid.pack(pady=10)
 
+        # Criar grid de células
+        self.celulas = []
+        for i in range(self.jogo.tentativas):
+            linha = []
+            for j in range(self.jogo.tamanho):
+                celula = tk.Label(self.frame_grid)
+                celula.grid(row=i, column=j, padx=5, pady=5)
+                linha.append(celula)
+            self.celulas.append(linha)
+
 root = tk.Tk()
 
 app = WordleGUI(root)
