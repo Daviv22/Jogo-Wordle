@@ -108,6 +108,10 @@ class WordleGUI:
         self.tentativa_atual += 1
         self.letra_atual = 0
 
+        # Verificar derrota
+        if self.tentativa_atual >= self.jogo.tentativas:
+            print(f"Você perdeu! A palavra era {self.jogo.palavra_escolhida}")
+
 
 root = tk.Tk()
 
