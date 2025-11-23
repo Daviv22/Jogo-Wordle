@@ -48,6 +48,15 @@ class WordleGUI:
         if self.letra_atual != self.jogo.tamanho:
             print("Palavra incompleta!")
             return
+        
+        # Pegar a palavra digitada
+        palavra = ""
+        for i in range(self.jogo.tamanho):
+            palavra += self.celulas[self.tentativa_atual][i].cget("text").lower()
+        
+        # Simplificar a palavra para verificação
+        palavra_simplificada = self.jogo._simplifica_palavra(palavra)
+
 
 root = tk.Tk()
 
