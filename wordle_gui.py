@@ -102,6 +102,11 @@ class WordleGUI:
         if feedback == "C" * self.jogo.tamanho:
             print("Parabéns! Você ganhou!")
             self.tentativa_atual = self.jogo.tentativas # Bloqueia tentativas
+            return
+
+        # Próxima tentativa
+        self.tentativa_atual += 1
+        self.letra_atual = 0
 
 
 root = tk.Tk()
