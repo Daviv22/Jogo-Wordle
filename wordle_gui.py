@@ -62,6 +62,10 @@ class WordleGUI:
             print("Palavra inválida")
             return
         
+        # Obter feedback
+        feedback = self.jogo.feedback_chute(palavra_simplificada)
+
+        
 
 root = tk.Tk()
 
