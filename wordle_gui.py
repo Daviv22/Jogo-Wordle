@@ -32,9 +32,9 @@ class WordleGUI:
             self.celulas.append(linha)
 
         # Entry para input de teclas
-        self.entry = tk.Entry(self.root, bg="grey", fg="white", insertbackground="white")
+        self.entry = tk.Entry(self.root, bg="grey", fg="white", insertbackground="white", font=("Arial", 1))
 
-        self.entry.pack()
+        self.entry.place(width=0, height=0)
         self.entry.focus()
 
         # Bind de teclas
