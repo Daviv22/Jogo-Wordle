@@ -98,6 +98,11 @@ class WordleGUI:
 
             self.celulas[self.tentativa_atual][i].config(bg=cor)
 
+        # Verifica vitória
+        if feedback == "C" * self.jogo.tamanho:
+            print("Parabéns! Você ganhou!")
+            self.tentativa_atual = self.jogo.tentativas # Bloqueia tentativas
+
 
 root = tk.Tk()
 
