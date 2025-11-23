@@ -44,6 +44,23 @@ class WordleGUI:
         if self.tentativa_atual >= self.jogo.tentativas:
             return None
         
+        tecla = event.char.lower()
+
+        # Backspace
+        if event.keysym == "BackSpace":
+            if self.letra_atual > 0:
+                self.letra_atual -= 1
+                self.celulas[self.tentativa_atual][self.letra_atual].config(text="")
+
+        # Enter
+        elif event.keysym == "Return":
+            self.verificar_palavra()
+        
+        # Letras
+        elif tecla.isalpha() and self.letra_atual < self.jogo.tamanho:
+            self.celulas[self.tentativa_atual][self.letra_atual].config(text=tecla.upper())
+            self.letra_atual += 1
+        
     def verificar_palavra(self):
         if self.letra_atual != self.jogo.tamanho:
             print("Palavra incompleta!")
@@ -65,7 +82,6 @@ class WordleGUI:
         # Obter feedback
         feedback = self.jogo.feedback_chute(palavra_simplificada)
 
-        
 
 root = tk.Tk()
 
