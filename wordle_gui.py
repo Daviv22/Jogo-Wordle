@@ -36,7 +36,12 @@ class WordleGUI:
         self.entry.pack()
         self.entry.focus()
 
-        
+        # Bind de teclas
+        self.root.bind("<Key>", self.tecla_pressionada)
+
+    def tecla_pressionada(self, event):
+        if self.tentativa_atual >= self.jogo.tentativas:
+            return None
 
 root = tk.Tk()
 
