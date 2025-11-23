@@ -9,6 +9,7 @@ class WordleGUI:
 
         self.jogo = Wordle(arquivo_lexico="lexico.txt", tamanho=5, tentativas=6)
         self.tentativa_atual = 0
+        self.letra_atual = 0
         
         self.criar_interface()
 
