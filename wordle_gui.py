@@ -30,6 +30,14 @@ class WordleGUI:
                 linha.append(celula)
             self.celulas.append(linha)
 
+        # Entry para input de teclas
+        self.entry = tk.Entry(self.root, bg="grey", fg="white", insertbackground="white")
+
+        self.entry.pack()
+        self.entry.focus()
+
+        
+
 root = tk.Tk()
 
 app = WordleGUI(root)
