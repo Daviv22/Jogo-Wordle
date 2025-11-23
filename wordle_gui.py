@@ -57,6 +57,11 @@ class WordleGUI:
         # Simplificar a palavra para verificação
         palavra_simplificada = self.jogo._simplifica_palavra(palavra)
 
+        # Verificar se a palavra é válida
+        if not self.jogo.verifica_chute(palavra_simplificada):
+            print("Palavra inválida")
+            return
+        
 
 root = tk.Tk()
 
