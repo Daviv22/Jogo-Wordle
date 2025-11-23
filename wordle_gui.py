@@ -8,6 +8,7 @@ class WordleGUI:
         self.root.configure(bg = "grey")    # Define cor de fundo como cinza
 
         self.jogo = Wordle(arquivo_lexico="lexico.txt", tamanho=5, tentativas=6)
+        self.tentativa_atual = 0
         
         self.criar_interface()
 
