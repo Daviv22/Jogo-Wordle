@@ -15,6 +15,8 @@ class WordleGUI:
         self.cor_certa = "#538d4e"      # Verde - letra certa no lugar certo
         self.cor_presente = "#b59f3b"   # Amarelo - letra certa no lugar errado
         self.cor_errada = "#3a3a3c"     # Cinza escuro - letra não está na palavra
+        self.cor_vazia = "#121213"      # Preto - célula vazia
+        self.cor_borda = "#3a3a3c"      # Cinza escuro - borda das células
         
         self.criar_interface()
 
