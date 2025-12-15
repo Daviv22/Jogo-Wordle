@@ -49,6 +49,12 @@ class WordleGUI:
         self.entry.place(width=0, height=0)
         self.entry.focus()
 
+        # Botão de novo jogo
+        self.btn_novo = tk.Button(self.root, text="Novo Jogo", font=("Arial", 12),
+                                  command=self.novo_jogo, bg="#538d4e", fg="white",
+                                  activebackground="#6aaa64", activeforeground="white")
+        self.btn_novo.pack(pady=10)
+
         # Bind de teclas
         self.root.bind("<Key>", self.tecla_pressionada)
 
@@ -118,6 +124,16 @@ class WordleGUI:
         if self.tentativa_atual >= self.jogo.tentativas:
             print(f"Você perdeu! A palavra era {self.jogo.palavra_escolhida}")
 
+    def novo_jogo(self):
+        # Reinicia o jogo
+        self.jogo = Wordle(self.jogo.arquivo_lexico, self.jogo.tamanho, self.jogo.tentativas)
+        self.tentativa_atual = 0
+        self.letra_atual = 0
+
+        # Limpar todas as células
+        for i in range(self.jogo.tentativas):
+            for j in range(self.jogo.tamanho):
+                self.celulas[i][j].config(text="", bg=self.cor_vazia)
 
 root = tk.Tk()
 
