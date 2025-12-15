@@ -5,28 +5,28 @@ class WordleGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Worlde em Português")
-        self.root.configure(bg="#121213")    # Define cor de fundo como cinza
+        self.root.configure(bg="#615458")    # Define cor de fundo
 
         self.jogo = Wordle(arquivo_lexico="lexico.txt", tamanho=5, tentativas=6)
         self.tentativa_atual = 0
         self.letra_atual = 0
 
         # Cores do Wordle
-        self.cor_certa = "#538d4e"      # Verde - letra certa no lugar certo
-        self.cor_presente = "#b59f3b"   # Amarelo - letra certa no lugar errado
-        self.cor_errada = "#3a3a3c"     # Cinza escuro - letra não está na palavra
-        self.cor_vazia = "#121213"      # Preto - célula vazia
-        self.cor_borda = "#3a3a3c"      # Cinza escuro - borda das células
+        self.cor_bg = "#615458"
+        self.cor_certa = "#3AA394"      # Letra certa no lugar certo
+        self.cor_presente = "#D3AD69"   # Letra certa no lugar errado
+        self.cor_errada = "#312a2c"     # Letra não está na palavra
+        self.cor_vazia = "#504a4b"      # Célula vazia
         
         self.criar_interface()
 
     def criar_interface(self):
         #Título
-        titulo = tk.Label(self.root, text="Wordle", font=("Arial", 32, "bold"), bg="#121213", fg="white")
+        titulo = tk.Label(self.root, text="Wordle", font=("Arial", 32, "bold"), bg=self.cor_bg, fg="white")
         titulo.pack(pady=20)
 
         # Frame para o grid de letras
-        self.frame_grid = tk.Frame(self.root, bg="#121213")
+        self.frame_grid = tk.Frame(self.root, bg=self.cor_bg)
         self.frame_grid.pack(pady=10)
 
         # Criar grid de células
@@ -35,10 +35,7 @@ class WordleGUI:
             linha = []
             for j in range(self.jogo.tamanho):
                 celula = tk.Label(self.frame_grid, text="", font=("Arial", 24, "bold"),
-                                  width=3, height=1, bg=self.cor_vazia, fg="white",
-                                  relief="solid", borderwidth=2, bd=2,
-                                  highlightbackground=self.cor_borda,
-                                  highlightthickness=2)
+                                  width=3, height=1, bg=self.cor_vazia, fg="white")
                 celula.grid(row=i, column=j, padx=5, pady=5)
                 linha.append(celula)
             self.celulas.append(linha)
