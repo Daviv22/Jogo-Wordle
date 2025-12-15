@@ -5,7 +5,7 @@ class WordleGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Worlde em Português")
-        self.root.configure(bg = "grey")    # Define cor de fundo como cinza
+        self.root.configure(bg="#121213")    # Define cor de fundo como cinza
 
         self.jogo = Wordle(arquivo_lexico="lexico.txt", tamanho=5, tentativas=6)
         self.tentativa_atual = 0
@@ -22,11 +22,11 @@ class WordleGUI:
 
     def criar_interface(self):
         #Título
-        titulo = tk.Label(self.root, text="Wordle", bg="grey")
+        titulo = tk.Label(self.root, text="Wordle", font=("Arial", 32, "bold"), bg="#121213", fg="white")
         titulo.pack(pady=20)
 
         # Frame para o grid de letras
-        self.frame_grid = tk.Frame(self.root, bg="grey")
+        self.frame_grid = tk.Frame(self.root, bg="#121213")
         self.frame_grid.pack(pady=10)
 
         # Criar grid de células
@@ -34,13 +34,17 @@ class WordleGUI:
         for i in range(self.jogo.tentativas):
             linha = []
             for j in range(self.jogo.tamanho):
-                celula = tk.Label(self.frame_grid)
+                celula = tk.Label(self.frame_grid, text="", font=("Arial", 24, "bold"),
+                                  width=3, height=1, bg=self.cor_vazia, fg="white",
+                                  relief="solid", borderwidth=2, bd=2,
+                                  highlightbackground=self.cor_borda,
+                                  highlightthickness=2)
                 celula.grid(row=i, column=j, padx=5, pady=5)
                 linha.append(celula)
             self.celulas.append(linha)
 
         # Entry para input de teclas
-        self.entry = tk.Entry(self.root, bg="grey", fg="white", insertbackground="white", font=("Arial", 1))
+        self.entry = tk.Entry(self.root, bg="#121213", fg="white", insertbackground="white", font=("Arial", 1))
 
         self.entry.place(width=0, height=0)
         self.entry.focus()
